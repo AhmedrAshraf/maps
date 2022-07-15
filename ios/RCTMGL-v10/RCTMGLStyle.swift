@@ -15,7 +15,8 @@ class RCTMGLStyle {
 func fillLayer(layer: inout FillLayer, reactStyle:Dictionary<String, Any>, applyUpdater: @escaping  ((inout FillLayer)->Void)->Void, isValid: @escaping () -> Bool)
 {
   guard self._hasReactStyle(reactStyle) else {
-    fatalError("Invlalid style: \(reactStyle)")
+    Logger.log(level:.error, message: "Invalid style: \(reactStyle)")
+    return
   }
 
   let styleProps = reactStyle.keys
@@ -74,6 +75,7 @@ func fillLayer(layer: inout FillLayer, reactStyle:Dictionary<String, Any>, apply
     } else if (prop == "fillPatternTransition") {
       self.setFillPatternTransition(&layer, styleValue:styleValue);
     } else {
+      Logger.log(level:.error, "Unexpected property \(prop) for layer: fill")
       // TODO throw exception
     }
   }
@@ -82,7 +84,8 @@ func fillLayer(layer: inout FillLayer, reactStyle:Dictionary<String, Any>, apply
 func lineLayer(layer: inout LineLayer, reactStyle:Dictionary<String, Any>, applyUpdater: @escaping  ((inout LineLayer)->Void)->Void, isValid: @escaping () -> Bool)
 {
   guard self._hasReactStyle(reactStyle) else {
-    fatalError("Invlalid style: \(reactStyle)")
+    Logger.log(level:.error, message: "Invalid style: \(reactStyle)")
+    return
   }
 
   let styleProps = reactStyle.keys
@@ -167,6 +170,7 @@ func lineLayer(layer: inout LineLayer, reactStyle:Dictionary<String, Any>, apply
     } else if (prop == "lineTrimOffset") {
       self.setLineTrimOffset(&layer, styleValue:styleValue);
     } else {
+      Logger.log(level:.error, "Unexpected property \(prop) for layer: line")
       // TODO throw exception
     }
   }
@@ -175,7 +179,8 @@ func lineLayer(layer: inout LineLayer, reactStyle:Dictionary<String, Any>, apply
 func symbolLayer(layer: inout SymbolLayer, reactStyle:Dictionary<String, Any>, applyUpdater: @escaping  ((inout SymbolLayer)->Void)->Void, isValid: @escaping () -> Bool)
 {
   guard self._hasReactStyle(reactStyle) else {
-    fatalError("Invlalid style: \(reactStyle)")
+    Logger.log(level:.error, message: "Invalid style: \(reactStyle)")
+    return
   }
 
   let styleProps = reactStyle.keys
@@ -342,6 +347,7 @@ func symbolLayer(layer: inout SymbolLayer, reactStyle:Dictionary<String, Any>, a
     } else if (prop == "textTranslateAnchor") {
       self.setTextTranslateAnchor(&layer, styleValue:styleValue);
     } else {
+      Logger.log(level:.error, "Unexpected property \(prop) for layer: symbol")
       // TODO throw exception
     }
   }
@@ -350,7 +356,8 @@ func symbolLayer(layer: inout SymbolLayer, reactStyle:Dictionary<String, Any>, a
 func circleLayer(layer: inout CircleLayer, reactStyle:Dictionary<String, Any>, applyUpdater: @escaping  ((inout CircleLayer)->Void)->Void, isValid: @escaping () -> Bool)
 {
   guard self._hasReactStyle(reactStyle) else {
-    fatalError("Invlalid style: \(reactStyle)")
+    Logger.log(level:.error, message: "Invalid style: \(reactStyle)")
+    return
   }
 
   let styleProps = reactStyle.keys
@@ -404,6 +411,7 @@ func circleLayer(layer: inout CircleLayer, reactStyle:Dictionary<String, Any>, a
     } else if (prop == "circleStrokeOpacityTransition") {
       self.setCircleStrokeOpacityTransition(&layer, styleValue:styleValue);
     } else {
+      Logger.log(level:.error, "Unexpected property \(prop) for layer: circle")
       // TODO throw exception
     }
   }
@@ -412,7 +420,8 @@ func circleLayer(layer: inout CircleLayer, reactStyle:Dictionary<String, Any>, a
 func heatmapLayer(layer: inout HeatmapLayer, reactStyle:Dictionary<String, Any>, applyUpdater: @escaping  ((inout HeatmapLayer)->Void)->Void, isValid: @escaping () -> Bool)
 {
   guard self._hasReactStyle(reactStyle) else {
-    fatalError("Invlalid style: \(reactStyle)")
+    Logger.log(level:.error, message: "Invalid style: \(reactStyle)")
+    return
   }
 
   let styleProps = reactStyle.keys
@@ -442,6 +451,7 @@ func heatmapLayer(layer: inout HeatmapLayer, reactStyle:Dictionary<String, Any>,
     } else if (prop == "heatmapOpacityTransition") {
       self.setHeatmapOpacityTransition(&layer, styleValue:styleValue);
     } else {
+      Logger.log(level:.error, "Unexpected property \(prop) for layer: heatmap")
       // TODO throw exception
     }
   }
@@ -450,7 +460,8 @@ func heatmapLayer(layer: inout HeatmapLayer, reactStyle:Dictionary<String, Any>,
 func fillExtrusionLayer(layer: inout FillExtrusionLayer, reactStyle:Dictionary<String, Any>, applyUpdater: @escaping  ((inout FillExtrusionLayer)->Void)->Void, isValid: @escaping () -> Bool)
 {
   guard self._hasReactStyle(reactStyle) else {
-    fatalError("Invlalid style: \(reactStyle)")
+    Logger.log(level:.error, message: "Invalid style: \(reactStyle)")
+    return
   }
 
   let styleProps = reactStyle.keys
@@ -511,6 +522,7 @@ func fillExtrusionLayer(layer: inout FillExtrusionLayer, reactStyle:Dictionary<S
     } else if (prop == "fillExtrusionVerticalGradient") {
       self.setFillExtrusionVerticalGradient(&layer, styleValue:styleValue);
     } else {
+      Logger.log(level:.error, "Unexpected property \(prop) for layer: fill-extrusion")
       // TODO throw exception
     }
   }
@@ -519,7 +531,8 @@ func fillExtrusionLayer(layer: inout FillExtrusionLayer, reactStyle:Dictionary<S
 func rasterLayer(layer: inout RasterLayer, reactStyle:Dictionary<String, Any>, applyUpdater: @escaping  ((inout RasterLayer)->Void)->Void, isValid: @escaping () -> Bool)
 {
   guard self._hasReactStyle(reactStyle) else {
-    fatalError("Invlalid style: \(reactStyle)")
+    Logger.log(level:.error, message: "Invalid style: \(reactStyle)")
+    return
   }
 
   let styleProps = reactStyle.keys
@@ -561,6 +574,7 @@ func rasterLayer(layer: inout RasterLayer, reactStyle:Dictionary<String, Any>, a
     } else if (prop == "rasterFadeDuration") {
       self.setRasterFadeDuration(&layer, styleValue:styleValue);
     } else {
+      Logger.log(level:.error, "Unexpected property \(prop) for layer: raster")
       // TODO throw exception
     }
   }
@@ -569,7 +583,8 @@ func rasterLayer(layer: inout RasterLayer, reactStyle:Dictionary<String, Any>, a
 func hillshadeLayer(layer: inout HillshadeLayer, reactStyle:Dictionary<String, Any>, applyUpdater: @escaping  ((inout HillshadeLayer)->Void)->Void, isValid: @escaping () -> Bool)
 {
   guard self._hasReactStyle(reactStyle) else {
-    fatalError("Invlalid style: \(reactStyle)")
+    Logger.log(level:.error, message: "Invalid style: \(reactStyle)")
+    return
   }
 
   let styleProps = reactStyle.keys
@@ -603,6 +618,7 @@ func hillshadeLayer(layer: inout HillshadeLayer, reactStyle:Dictionary<String, A
     } else if (prop == "hillshadeAccentColorTransition") {
       self.setHillshadeAccentColorTransition(&layer, styleValue:styleValue);
     } else {
+      Logger.log(level:.error, "Unexpected property \(prop) for layer: hillshade")
       // TODO throw exception
     }
   }
@@ -611,7 +627,8 @@ func hillshadeLayer(layer: inout HillshadeLayer, reactStyle:Dictionary<String, A
 func backgroundLayer(layer: inout BackgroundLayer, reactStyle:Dictionary<String, Any>, applyUpdater: @escaping  ((inout BackgroundLayer)->Void)->Void, isValid: @escaping () -> Bool)
 {
   guard self._hasReactStyle(reactStyle) else {
-    fatalError("Invlalid style: \(reactStyle)")
+    Logger.log(level:.error, message: "Invalid style: \(reactStyle)")
+    return
   }
 
   let styleProps = reactStyle.keys
@@ -656,6 +673,7 @@ func backgroundLayer(layer: inout BackgroundLayer, reactStyle:Dictionary<String,
     } else if (prop == "backgroundOpacityTransition") {
       self.setBackgroundOpacityTransition(&layer, styleValue:styleValue);
     } else {
+      Logger.log(level:.error, "Unexpected property \(prop) for layer: background")
       // TODO throw exception
     }
   }
@@ -664,7 +682,8 @@ func backgroundLayer(layer: inout BackgroundLayer, reactStyle:Dictionary<String,
 func skyLayer(layer: inout SkyLayer, reactStyle:Dictionary<String, Any>, applyUpdater: @escaping  ((inout SkyLayer)->Void)->Void, isValid: @escaping () -> Bool)
 {
   guard self._hasReactStyle(reactStyle) else {
-    fatalError("Invlalid style: \(reactStyle)")
+    Logger.log(level:.error, message: "Invalid style: \(reactStyle)")
+    return
   }
 
   let styleProps = reactStyle.keys
@@ -698,6 +717,7 @@ func skyLayer(layer: inout SkyLayer, reactStyle:Dictionary<String, Any>, applyUp
     } else if (prop == "skyOpacityTransition") {
       self.setSkyOpacityTransition(&layer, styleValue:styleValue);
     } else {
+      Logger.log(level:.error, "Unexpected property \(prop) for layer: sky")
       // TODO throw exception
     }
   }
@@ -706,7 +726,8 @@ func skyLayer(layer: inout SkyLayer, reactStyle:Dictionary<String, Any>, applyUp
 func lightLayer(layer: inout Light, reactStyle:Dictionary<String, Any>, applyUpdater: @escaping  ((inout Light)->Void)->Void, isValid: @escaping () -> Bool)
 {
   guard self._hasReactStyle(reactStyle) else {
-    fatalError("Invlalid style: \(reactStyle)")
+    Logger.log(level:.error, message: "Invalid style: \(reactStyle)")
+    return
   }
 
   let styleProps = reactStyle.keys
@@ -732,6 +753,7 @@ func lightLayer(layer: inout Light, reactStyle:Dictionary<String, Any>, applyUpd
     } else if (prop == "intensityTransition") {
       self.setIntensityTransition(&layer, styleValue:styleValue);
     } else {
+      Logger.log(level:.error, "Unexpected property \(prop) for layer: light")
       // TODO throw exception
     }
   }
@@ -740,7 +762,8 @@ func lightLayer(layer: inout Light, reactStyle:Dictionary<String, Any>, applyUpd
 func atmosphereLayer(layer: inout Atmosphere, reactStyle:Dictionary<String, Any>, applyUpdater: @escaping  ((inout Atmosphere)->Void)->Void, isValid: @escaping () -> Bool)
 {
   guard self._hasReactStyle(reactStyle) else {
-    fatalError("Invlalid style: \(reactStyle)")
+    Logger.log(level:.error, message: "Invalid style: \(reactStyle)")
+    return
   }
 
   let styleProps = reactStyle.keys
@@ -764,6 +787,7 @@ func atmosphereLayer(layer: inout Atmosphere, reactStyle:Dictionary<String, Any>
     } else if (prop == "starIntensity") {
       self.setStarIntensity(&layer, styleValue:styleValue);
     } else {
+      Logger.log(level:.error, "Unexpected property \(prop) for layer: atmosphere")
       // TODO throw exception
     }
   }
